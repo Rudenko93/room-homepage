@@ -5,13 +5,13 @@
 }
 
 :root {
-  --font-size-a: 1.85em;
-  --font-size-span: 1.65em;
-  --font-size-h1: 4em;
-  --font-size-h2: 2.1em;
+  --font-size: 1.125rem;
+  --font-size-h1: 3rem;
+  --font-size-h2: 1.875rem;
 }
 
 body {
+  overflow-x: hidden;
   display: flex;
   justify-content: center;
 
@@ -19,42 +19,6 @@ body {
 
   font-family: "League Spartan", sans-serif;
   font-size: 12px;
-}
-
-@media (max-width: 1280px) {
-  :root {
-    --font-size-a: 1.85em;
-    --font-size-span: 1.55em;
-    --font-size-h1: 3.6em;
-    --font-size-h2: 2em;
-  }
-}
-
-@media (max-width: 1024px) {
-  :root {
-    --font-size-a: 1.65em;
-    --font-size-span: 1.45em;
-    --font-size-h1: 3.2em;
-    --font-size-h2: 1.8em;
-  }
-}
-
-@media (max-width: 768px) {
-  :root {
-    --font-size-a: 1.65em;
-    --font-size-span: 1.35em;
-    --font-size-h1: 3em;
-    --font-size-h2: 1.6em;
-  }
-}
-
-@media (max-width: 640px) {
-  :root {
-    --font-size-a: 1.85em;
-    --font-size-span: 1.35em;
-    --font-size-h1: 3em;
-    --font-size-h2: 1.6em;
-  }
 }
 
 .menu {
@@ -71,7 +35,7 @@ body {
 
 a {
   margin: 0 1.5vw;
-  font-size: var(--font-size-a);
+  font-size: var(--font-size);
   color: white;
   text-decoration: none;
 }
@@ -84,7 +48,6 @@ a {
 .slider-container {
   display: flex;
   width: 100%;
-  height: 65vh;
 }
 
 .slider {
@@ -94,27 +57,47 @@ a {
 .slider img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
 }
 
-.discover {
+.section {
   position: relative;
 
   display: flex;
   flex-direction: column;
 
   width: 40vw;
-  padding: 5vw;
+  padding: 4vw;
 }
 
-.discover .title {
+.section .title {
   font-size: var(--font-size-h1);
 }
 
 .description {
-  margin-top: 5vw;
-  font-size: var(--font-size-span);
+  margin-top: 3.5vw;
+  font-size: var(--font-size);
+  line-height: 1.25rem;
   color: #a1a1a1;
+}
+
+.section button {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+
+  margin-top: 3.5vw;
+  margin-bottom: 2.5vw;
+
+  font-family: "League Spartan", sans-serif;
+  font-size: var(--font-size-h2);
+  letter-spacing: 0.3em;
+
+  background-color: transparent;
+  border: none;
+}
+
+.section button:hover {
+  cursor: pointer;
 }
 
 .slider-controls {
@@ -126,18 +109,26 @@ a {
   align-items: center;
   justify-content: space-around;
 
+  width: 10vw;
+
   background-color: black;
 }
 
 .slider-controls img {
-  width: 3vh;
-  height: 3vh;
-  margin: 3vh;
+  width: 3vw;
+  padding: 1vw;
 }
 
 .about-container {
   display: flex;
   max-height: 35vh;
+}
+
+.about-container img {
+  width: 30vw;
+  height: 100%;
+  min-height: 35vh;
+  object-fit: cover;
 }
 
 .about {
@@ -152,9 +143,69 @@ a {
   letter-spacing: 0.3em;
 }
 
-.about-container img {
-  width: 30vw;
-  height: 100%;
-  min-height: 35vh;
-  object-fit: cover;
+@media (max-width: 992px) {
+  :root {
+    --font-size: 1rem;
+    --font-size-h1: 3rem;
+    --font-size-h2: 2rem;
+  }
+
+  .slider-container {
+    display: block;
+  }
+
+  .slider {
+    width: 100%;
+  }
+
+  .section {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 6vw;
+  }
+
+  .section button {
+    margin: 4.5vw 0;
+  }
+
+  .slider-controls {
+    inset: -3.9vw 0 auto auto;
+    width: 20vw;
+  }
+
+  .slider-controls img {
+    width: 5.5vw;
+    padding: 2vw;
+  }
+
+  .about-container {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 4vw 0;
+  }
+
+  .about-container img {
+    width: 100%;
+    min-height: auto;
+    object-fit: cover;
+  }
+
+  .about {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    margin: 4vw 0;
+    padding: 4.5vw;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --font-size: 0.875rem;
+    --font-size-h1: 2.25rem;
+    --font-size-h2: 1.26rem;
+  }
 }

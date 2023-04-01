@@ -12,7 +12,7 @@ function App() {
         <div className="slider">
           <img src="./images/desktop-image-hero-1.jpg" alt="" />
         </div>
-        <div className="discover">
+        <div className="section">
           <h1 className="title">Discover innovative ways to decorate</h1>
           <span className="description">
             We provide unmatched quality, comfort, and style for property owners
@@ -21,7 +21,9 @@ function App() {
             our collection and make your property a reflection of you and what
             you love.
           </span>
-          <button>Shop now</button>
+          <button>
+            SHOP NOW <img src="./images/icon-arrow.svg" alt="" />
+          </button>
           <div className="slider-controls">
             <img src="./images/icon-angle-left.svg" alt="a" />
             <img src="./images/icon-angle-right.svg" alt="s" />
