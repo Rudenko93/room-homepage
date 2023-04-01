@@ -4,12 +4,157 @@
   padding: 0;
 }
 
-body {
-  margin: 0;
-  font-family: "Segoe UI", Roboto, sans-serif;
+:root {
+  --font-size-a: 1.85em;
+  --font-size-span: 1.65em;
+  --font-size-h1: 4em;
+  --font-size-h2: 2.1em;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+body {
+  display: flex;
+  justify-content: center;
+
+  margin: 0;
+
+  font-family: "League Spartan", sans-serif;
+  font-size: 12px;
+}
+
+@media (max-width: 1280px) {
+  :root {
+    --font-size-a: 1.85em;
+    --font-size-span: 1.55em;
+    --font-size-h1: 3.6em;
+    --font-size-h2: 2em;
+  }
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --font-size-a: 1.65em;
+    --font-size-span: 1.45em;
+    --font-size-h1: 3.2em;
+    --font-size-h2: 1.8em;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --font-size-a: 1.65em;
+    --font-size-span: 1.35em;
+    --font-size-h1: 3em;
+    --font-size-h2: 1.6em;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --font-size-a: 1.85em;
+    --font-size-span: 1.35em;
+    --font-size-h1: 3em;
+    --font-size-h2: 1.6em;
+  }
+}
+
+.menu {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  margin: 3rem;
+}
+
+.menu img {
+  height: 20px;
+  margin: 0 1em;
+}
+
+a {
+  margin: 0 1.5vw;
+  font-size: var(--font-size-a);
+  color: white;
+  text-decoration: none;
+}
+
+.app {
+  position: relative;
+  min-height: 100vh;
+}
+
+.slider-container {
+  display: flex;
+  width: 100%;
+  height: 65vh;
+}
+
+.slider {
+  width: 60vw;
+}
+
+.slider img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.discover {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 40vw;
+  padding: 5vw;
+}
+
+.discover .title {
+  font-size: var(--font-size-h1);
+}
+
+.description {
+  margin-top: 5vw;
+  font-size: var(--font-size-span);
+  color: #a1a1a1;
+}
+
+.slider-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  background-color: black;
+}
+
+.slider-controls img {
+  width: 3vh;
+  height: 3vh;
+  margin: 3vh;
+}
+
+.about-container {
+  display: flex;
+  max-height: 35vh;
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+  width: 40vw;
+  padding: 3vw;
+}
+
+.about-title {
+  font-size: var(--font-size-h2);
+  letter-spacing: 0.3em;
+}
+
+.about-container img {
+  width: 30vw;
+  height: 100%;
+  min-height: 35vh;
+  object-fit: cover;
 }
