@@ -1,7 +1,8 @@
 import { useState } from "react"
 import { data } from "../data"
+import { IMatchedMedia } from "../types"
 
-export const Slider: React.FC<Record<string, boolean>> = ({ isMobile }) => {
+export const Slider: React.FC<IMatchedMedia> = ({ isMobile }) => {
   const [curr, setCurr] = useState(0)
   const handlePrev = () => {
     setCurr(curr === 0 ? data.length - 1 : curr - 1)

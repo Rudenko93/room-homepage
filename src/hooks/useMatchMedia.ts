@@ -1,7 +1,5 @@
 import { useState, useLayoutEffect } from "react"
-
-export type IQuery = Array<string>
-export type IMatchedMedia = Record<string, boolean>
+import { IMatchedMedia, IQuery } from "../types"
 
 const queries: IQuery = ["(max-width: 576px)"]
 
