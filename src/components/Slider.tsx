@@ -25,37 +25,39 @@ const data = [
 ]
 
 export const Slider = () => {
-  const [state, setState] = useState(0)
-
+  const [curr, setCurr] = useState(0)
   const handlePrev = () => {
-    if (state === 0) {
-      setState(data.length - 1)
-    } else {
-      setState((prev) => prev - 1)
-    }
-    console.log(data[state])
+    setCurr(curr === 0 ? data.length - 1 : curr - 1)
   }
-
   const handleNext = () => {
-    if (state === data.length - 1) {
-      setState(0)
-    } else {
-      setState((prev) => prev + 1)
-    }
-    console.log(data[state])
+    setCurr(curr === data.length - 1 ? 0 : curr + 1)
   }
 
   return (
-    <div className="slider-container">
-      <div className="slider">
-        <img src={data[state].desktop} alt="" />
+    <div className="slider-section">
+      <div className="slider-wrapper">
+        <div
+          className="slider-container"
+          style={{ transform: `translateX(-${curr * 100}%)` }}>
+          {data.map((slide) => (
+            <img src={slide.desktop} alt="" key={slide.id} />
+          ))}
+        </div>
       </div>
-      <div className="section">
-        <h1 className="title">{data[state].title}</h1>
-        <span className="description">{data[state].desc}</span>
-        <button>
-          SHOP NOW <img src="./images/icon-arrow.svg" alt="" />
-        </button>
+      <div className="section-wrapper">
+        <div
+          className="section-container"
+          style={{ transform: `translateX(-${curr * 100}%)` }}>
+          {data.map((slide) => (
+            <div className="section">
+              <h1 className="title">{slide.title}</h1>
+              <span className="description">{slide.desc}</span>
+              <button>
+                SHOP NOW <img src="./images/icon-arrow.svg" alt="" />
+              </button>
+            </div>
+          ))}
+        </div>
         <div className="slider-controls">
           <img
             tabIndex={0}
