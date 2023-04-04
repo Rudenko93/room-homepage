@@ -30,11 +30,18 @@ body {
 
 .overlay.open {
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.9); /* Black w/opacity */
-  height: 100vh;
-  left: 0;
+  z-index: 1000;
   top: 0;
-  transition: 0.5s;
+  left: 0;
+
+  overflow-y: hidden;
+
+  width: 100%;
+  min-height: 100%;
+
+  background-color: #000000bf; /* Black w/opacity */
+
+  transition: 0.3s;
 }
 
 .menu {

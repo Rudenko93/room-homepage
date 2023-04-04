@@ -1,16 +1,26 @@
-import { useState } from "react"
+import { useRef, useState } from "react"
 import classNames from "classnames"
 import { IMatchedMedia } from "../types"
+import { useOnClickOutside } from "../hooks/useOnClickOutside"
 
 export const Header: React.FC<IMatchedMedia> = ({ isMobile }) => {
   const [isOpen, setIsOpen] = useState(false)
 
+  const ref = useRef(null)
+  const handle = () => {
+    console.log("event")
+    setIsOpen(false)
+  }
+
+  useOnClickOutside(ref, handle)
+
   return (
     <div
       className={classNames("overlay", {
-        open: isOpen,
+        open: isMobile && isOpen,
       })}>
       <header
+        ref={ref}
         className={classNames("menu", {
           mobile: isMobile,
           open: isOpen,
