@@ -1,9 +1,8 @@
 import { useState, useLayoutEffect } from "react"
-import { IMatchedMedia, IQuery } from "../types"
 
-const queries: IQuery = ["(max-width: 576px)"]
+const queries: Array<string> = ["(max-width: 576px)"]
 
-export const useMatchMedia = (): IMatchedMedia => {
+export const useMatchMedia = (): Record<string, boolean> => {
   const mediaQueryLists = queries.map((query) => matchMedia(query))
 
   const getValues = () => mediaQueryLists.map((list) => list.matches)

@@ -1,18 +1,16 @@
 import { useRef, useState } from "react"
 import classNames from "classnames"
-import { IMatchedMedia } from "../types"
-import { useOnClickOutside } from "../hooks/useOnClickOutside"
+import { useOutsideClick } from "../hooks/useOutsideClick"
 
-export const Header: React.FC<IMatchedMedia> = ({ isMobile }) => {
+export const Header: React.FC<Record<string, boolean>> = ({ isMobile }) => {
   const [isOpen, setIsOpen] = useState(false)
 
   const ref = useRef(null)
   const handle = () => {
-    console.log("event")
     setIsOpen(false)
   }
 
-  useOnClickOutside(ref, handle)
+  useOutsideClick(ref, handle, isOpen)
 
   return (
     <div

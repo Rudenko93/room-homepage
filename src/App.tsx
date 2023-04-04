@@ -2,10 +2,9 @@ import { Slider } from "./components/Slider"
 import { About } from "./components/About"
 import { Header } from "./components/Header"
 import { useMatchMedia } from "./hooks/useMatchMedia"
-import { IMatchedMedia } from "./types"
 
 function App() {
-  const { isMobile }: IMatchedMedia = useMatchMedia()
+  const { isMobile }: Record<string, boolean> = useMatchMedia()
   return (
     <div className="app">
       <Header isMobile={isMobile} />
