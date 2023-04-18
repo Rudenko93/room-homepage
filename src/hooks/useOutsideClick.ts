@@ -11,9 +11,9 @@ export const useOutsideClick = (
   useEffect(() => {
     if (!attached) return
 
-    const handleClick = (e: any) => {
+    const handleClick = (e: Event) => {
       if (!elementRef.current) return
-      if (!elementRef.current.contains(e.target)) {
+      if (!elementRef.current.contains(e.target as HTMLElement)) {
         latestHandler.current()
       }
     }

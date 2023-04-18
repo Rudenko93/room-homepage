@@ -1,12 +1,14 @@
 import { useState } from "react"
 import { data } from "../data"
 
-export const Slider: React.FC<Record<string, boolean>> = ({ isMobile }) => {
-  const [curr, setCurr] = useState(0)
-  const handlePrev = () => {
+export const Slider: React.FC<Record<string, boolean>> = ({
+  isMobile,
+}): JSX.Element => {
+  const [curr, setCurr] = useState<number>(0)
+  const handlePrev = (): void => {
     setCurr(curr === 0 ? data.length - 1 : curr - 1)
   }
-  const handleNext = () => {
+  const handleNext = (): void => {
     setCurr(curr === data.length - 1 ? 0 : curr + 1)
   }
 

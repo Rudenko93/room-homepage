@@ -2,15 +2,36 @@ import { useRef, useState } from "react"
 import classNames from "classnames"
 import { useOutsideClick } from "../hooks/useOutsideClick"
 
-export const Header: React.FC<Record<string, boolean>> = ({ isMobile }) => {
-  const [isOpen, setIsOpen] = useState(false)
+interface IHeader {
+  isMobile: boolean
+}
 
-  const ref = useRef(null)
-  const handle = () => {
+export const Header: React.FC<IHeader> = ({ isMobile }): JSX.Element => {
+  const [isOpen, setIsOpen] = useState<boolean>(false)
+
+  const ref = useRef<HTMLDivElement>(null)
+  const handle = (): void => {
     setIsOpen(false)
   }
 
   useOutsideClick(ref, handle, isOpen)
+
+  const render = (): JSX.Element | null => {
+    if (!isMobile) return null
+    else {
+      return (
+        <img
+          className={classNames("menu-button", {
+            open: isOpen,
+          })}
+          src={
+            isOpen ? "./images/icon-close.svg" : "./images/icon-hamburger.svg"
+          }
+          alt=""
+          onClick={() => setIsOpen((prev) => !prev)}></img>
+      )
+    }
+  }
 
   return (
     <div
@@ -23,25 +44,16 @@ export const Header: React.FC<Record<string, boolean>> = ({ isMobile }) => {
           mobile: isMobile,
           open: isOpen,
         })}>
-        {isMobile && (
-          <img
-            className={classNames("menu-button", {
-              open: isOpen,
-            })}
-            src={
-              isOpen ? "./images/icon-close.svg" : "./images/icon-hamburger.svg"
-            }
-            onClick={() => setIsOpen((prev) => !prev)}></img>
-        )}
+        {render()}
         <img
           className={classNames("logo", { open: isMobile && isOpen })}
           src="./images/logo.svg"
           alt=""
         />
-        <a href="">home</a>
-        <a href="">shop</a>
-        <a href="">about</a>
-        <a href="">contact</a>
+        <a href="/">home</a>
+        <a href="/">shop</a>
+        <a href="/">about</a>
+        <a href="/">contact</a>
       </header>
     </div>
   )

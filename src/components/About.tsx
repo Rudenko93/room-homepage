@@ -1,4 +1,4 @@
-export const About = () => {
+export const About: React.FC = (): JSX.Element => {
   return (
     <div className="about-container">
       <img src="./images/image-about-dark.jpg" alt="" />
